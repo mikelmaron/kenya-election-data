@@ -1,7 +1,7 @@
 kenya-election-data
 ===================
 
-This is data useful to election mapping in Kenya.
+Data useful for election mapping in Kenya.
 
 Shapefiles containing County and Constituency boundaries, and Polling Place locations, can be downloaded from
 https://github.com/mikelmaron/kenya-election-data/tree/master/output
