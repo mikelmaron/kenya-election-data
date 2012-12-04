@@ -44,6 +44,9 @@ def loadjson(url):
 	json_data = json.loads(data)
 	return json_data
 
+sys.stdout.write('{"type": "FeatureCollection","features": [')
+id = 0
+
 data = loadjson(county_url)
 for county in data['results']:
 	#print county['name']
@@ -56,9 +59,21 @@ for county in data['results']:
 			#print "\t\t" + ward['name']
 			stations = loadjson(pollingstation_ward_url + ward['name'])
 			for station in stations['results']:
-				sys.stdout.write(county['name'] + "\t")
-				sys.stdout.write(constituency['name'] + "\t")
-				sys.stdout.write(ward['name'] + "\t")
 				if station['name']:
-					sys.stdout.write(station['name'])
-				print("\t" + str(station['point']['lat']) + "\t" + str(station['point']['lon']))
+					if id != 0:
+						sys.stdout.write(',')
+					else:
+						id = id + 1
+					station_name = re.sub("\"","\\\"",station['name'])
+					ward_name =  ward['name'].replace('\\','',)
+
+					sys.stdout.write('{ "type": "Feature", "id":' + str(id) + ', "properties": {"county": "' + county['name'] + '", "ward": "' + ward_name + '", "constituency": "' + constituency['name'] + '", "name": "' + station_name + '", }, "geometry": { "type": "Point", "coordinates": [' + str(station['point']['lon']) + ', ' + str(station['point']['lat']) + ']}}')
+
+				#sys.stdout.write(county['name'] + "\t")
+				#sys.stdout.write(constituency['name'] + "\t")
+				#sys.stdout.write(ward['name'] + "\t")
+				#if station['name']:
+				#	sys.stdout.write(station['name'])
+				#print("\t" + str(station['point']['lat']) + "\t" + str(station['point']['lon']))
+
+sys.stdout.write(']}')
