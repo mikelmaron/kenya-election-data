@@ -1,0 +1,2 @@
+http://vote.iebc.or.ke/js/counties.geojson
+http://vote.iebc.or.ke/js/constituencies.geojson
