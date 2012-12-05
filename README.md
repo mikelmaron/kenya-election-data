@@ -10,4 +10,4 @@ Use the _sphericalmercator versions with TileMill, will be much faster. Otherwis
 
 This data comes from http://vote.iebc.or.ke/. There are simple endpoints for requesting json encoded data. download.py iterates, caches, and builds the output.
 
-More info at http://brainoff.com/
+More info at http://brainoff.com/weblog/2012/12/05/1790
