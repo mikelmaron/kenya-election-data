@@ -1,0 +1,1 @@
+{"status": "SUCCESS", "region": {"location_type": "constituency", "locations": [{"polygon": "http://api.iebc.or.ke/geojson/constituency_291.geojson", "registered": "2639", "code": "6D1B1E3B-B50D-4102-A8A7-587E9F5167D9", "name": "DIASPORA", "center": {"lat": 0.0, "lon": 0.0}}]}}
